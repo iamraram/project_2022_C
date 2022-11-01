@@ -11,3 +11,5 @@ void gotoxy(int x, int y);
 void clear();
 
 void textColor(int colorCode);
+
+int getColorBit(int background, int bright, int red, int green, int blue);

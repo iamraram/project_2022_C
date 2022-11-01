@@ -30,7 +30,11 @@ void clear() {
 	FillConsoleOutputCharacter(
 		GetStdHandle(STD_OUTPUT_HANDLE), ' ', COLS * LOWS, pos, &dw
 	);
+	FillConsoleOutputAttribute(
+		GetStdHandle(STD_OUTPUT_HANDLE), getColorBit(0, 1, 1, 1, 1), COLS * LOWS, pos, &dw
+	);
 	gotoxy(0, 0);
+	textColor(getColorBit(0, 1, 1, 1, 1));
 }
 
 void textColor(int colorCode) {
@@ -39,4 +43,13 @@ void textColor(int colorCode) {
 		colorCode
 		// 앞 네 비트는 순서대로 배경색, 글씨색 비트임
 	);
+}
+
+int getColorBit(int background, int bright, int red, int green, int blue) {
+	return (
+		bright << 3 |
+		red << 2 |
+		green << 1 |
+		blue
+	) << background * 4;
 }

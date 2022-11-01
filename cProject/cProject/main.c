@@ -14,8 +14,7 @@ int main() {
 
     setWindowSize(50, 30);
     gotoxy(20, 10);
-    textColor(
-);
+    textColor(getColorBit(1, 1, 1, 1, 1) | getColorBit(0, 0, 0, 0, 0));
     printf("이상윤 테트리스 실력");
     Sleep(1000);
     clear();
